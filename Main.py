@@ -89,8 +89,7 @@ Ejemplo: imagen.png""")
 1. Cuadrado
 2. Circulo
 R// """))
-            ima_bin =im.binarizar_imagen(binarizacion, kernel, dibujo)      
-            archivos_DICOM_IMA[f"{clave} binarizada"] = ima_bin
+            ima_bin =im.binarizar_imagen(binarizacion, kernel, dibujo, clave)      
 
         elif R == 6:
             print("Saliendo...")

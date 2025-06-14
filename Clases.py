@@ -44,6 +44,7 @@ def mostrar_cortes(volumen_3d):
         ax.axis('off')
 
     plt.tight_layout()
+    plt.savefig("3_Cortes.png")
     plt.show()
 
 
@@ -115,7 +116,7 @@ class IMAGENES:
         else:
             print("Error: No se pudo cargar la imagen.")
 
-    def binarizar_imagen(self, binarizacion, kernel, dibujo):
+    def binarizar_imagen(self, binarizacion, kernel, dibujo, clave):
         ima_gray = cv2.cvtColor(self.ima, cv2.COLOR_RGB2GRAY)
         # == Binarización de la imagen ==
         vmin = np.min(ima_gray)
@@ -134,8 +135,8 @@ class IMAGENES:
             print("Valor no válido")
 
 
-        imaEro = cv2.erode(imgB,kernel,iterations = 5)
-        imaT = cv2.dilate(imaEro,kernel,iterations = 1)
+        imaEro = cv2.erode(imgB,kernel,iterations = 50)
+        imaT = cv2.dilate(imaEro,kernel,iterations = 10)
 
         a = np.shape(imaT)
         Y = int(a[0]/2)
@@ -165,6 +166,8 @@ class IMAGENES:
             plt.subplot(1,3,3)
             plt.imshow(ima_rec)
             plt.title("Imagen con dibujo")
+
+            plt.savefig(f"{clave} binarizada.png")
             plt.show()
 
         elif dibujo == 2:
@@ -185,13 +188,13 @@ class IMAGENES:
             plt.subplot(1,3,3)
             plt.imshow(ima_cir)
             plt.title("Imagen con dibujo")
+
+            plt.savefig(f"{clave} binarizada.png")
             plt.show()
- 
+            
         else:
             print("Valor no válido")
 
-    def gaurdar_imagen():
-        pass
 
 
 
