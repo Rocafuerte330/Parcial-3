@@ -1,6 +1,16 @@
-def Paciente():
+
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+import pydicom
+import os
+
+class Paciente():
     pass
-def DICOM():
+class DICOM():
     pass
-def IMAGENES():
-    pass
+class IMAGENES:
+    defimagenes = os.listdir("Imagenes")
+
+    
+    
