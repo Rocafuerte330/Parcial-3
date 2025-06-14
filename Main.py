@@ -55,8 +55,7 @@ NOTA: Incluya la extención de la imagen (.jpg o .png)
 Ejemplo: imagen.png""")
             for i in imagenes:
                 print(f"- {i}")
-            # Ruta_ima = input("R// ")
-            Ruta_ima = "rostro.jpg"
+            Ruta_ima = input("R// ")
 
             ima = IMAGENES(Ruta_ima,None)
             ima.cargar_imagen()
@@ -71,8 +70,7 @@ Ejemplo: imagen.png""")
             imagenes = list(archivos_DICOM_IMA.keys())
             for i in imagenes:
                 print(f"- {i}")
-            # clave = input("R// ")
-            clave = "rostro"
+            clave = input("R// ")
             ima = archivos_DICOM_IMA.get(clave,"No está en el diccionario")
             img = ima.ima
             im = IMAGENES(None, img)
