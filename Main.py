@@ -52,6 +52,7 @@ Ejemplo: imagen.png""")
                 print(f"- {i}")
             # clave = input("R// ")
             clave = "rostro"
+            Ruta = f"{clave}.jpg"
             ima = archivos_DICOM_IMA.get(clave,"No está en el diccionario")
             img = ima.ima
             im = IMAGENES(None, img)
@@ -66,13 +67,13 @@ Ejemplo: imagen.png""")
             row = int(input("Filas: "))
             col = int(input("Columnas: "))
             kernel = (row,col)
-            im.binarizar_imagen(kernel, binarizacion)
-            im.mostrar_imagen()
-            
-#             dibujo = int(input("""Escoja un dibujo:
-# 1. Cuadrado
-# 2. Circulo
-# R// """))
+            dibujo = int(input("""Escoja un dibujo:
+1. Cuadrado
+2. Circulo
+R// """))
+            ima_bin =im.binarizar_imagen(binarizacion, kernel, dibujo, Ruta)      
+            archivos_DICOM_IMA[f"{clave} binarizada"] = ima_bin
+
         elif R == 6:
             print("Saliendo...")
             break
