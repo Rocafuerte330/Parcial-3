@@ -1,4 +1,4 @@
-def Pacientes():
+def Paciente():
     pass
 def DICOM():
     pass
