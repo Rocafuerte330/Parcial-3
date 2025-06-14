@@ -115,7 +115,7 @@ class IMAGENES:
         else:
             print("Error: No se pudo cargar la imagen.")
 
-    def binarizar_imagen(self, binarizacion, kernel, dibujo, Ruta):
+    def binarizar_imagen(self, binarizacion, kernel, dibujo):
         ima_gray = cv2.cvtColor(self.ima, cv2.COLOR_RGB2GRAY)
         # == Binarización de la imagen ==
         vmin = np.min(ima_gray)

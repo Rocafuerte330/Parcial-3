@@ -13,11 +13,11 @@ def menu():
             opcion = int(input("""Seleccione una opción:
 1. Cargar archivos Dicom y recosntruir volumen
 2. Mostrar cortes
-Aplicar traslación                          
-    4. Ingresar imagen (JPG o PNG)
-    5. Binarización de imagen (JPG o PNG)
-    6. Salir
-    R// """))
+3. Aplicar traslación                          
+4. Ingresar imagen (JPG o PNG)
+5. Binarización de imagen (JPG o PNG)
+6. Salir
+R// """))
             return opcion
         except ValueError:
             print(" Entrada inválida. Por favor ingrese un número.")
@@ -91,7 +91,7 @@ Ejemplo: imagen.png""")
 1. Cuadrado
 2. Circulo
 R// """))
-            ima_bin =im.binarizar_imagen(binarizacion, kernel, dibujo, Ruta)      
+            ima_bin =im.binarizar_imagen(binarizacion, kernel, dibujo)      
             archivos_DICOM_IMA[f"{clave} binarizada"] = ima_bin
 
         elif R == 6:
