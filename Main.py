@@ -44,7 +44,10 @@ def main():
                 mostrar_cortes(paciente.imagen)
 
         elif R == 3:
-            pass
+            if paciente is None:
+                print("Primero debe cargar los archivos DICOM (opción 1).")
+            else:
+                aplicar_traslacion_corte_transversal(paciente.imagen)
         elif R == 4:
             imagenes = os.listdir("Imagenes")
             print("""Estas son las imagenes disponibles, escriba el nombre de la imagen.
