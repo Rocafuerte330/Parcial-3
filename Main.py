@@ -25,7 +25,7 @@ Aplicar traslación
 
 def main():
     archivos_DICOM_IMA = {}
-    pacientes = {}
+    paciente = {}
     while True:
         R = menu()
 
@@ -36,8 +36,13 @@ def main():
             paciente = crear_paciente(archivos, volumen)
             print(f" Paciente cargado: {paciente.nombre}, Edad: {paciente.edad}, ID: {paciente.ID}")
             print(f" Volumen reconstruido con forma: {paciente.imagen.shape}")
+
         elif R == 2:
-            pass
+            if paciente is None:
+                print(" Primero debe cargar los archivos DICOM (opción 1).")
+            else:
+                mostrar_cortes(paciente.imagen)
+
         elif R == 3:
             pass
         elif R == 4:
