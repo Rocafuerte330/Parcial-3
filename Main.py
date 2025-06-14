@@ -5,16 +5,24 @@ import cv2
 import pydicom
 import os
 from Clases import *
+ruta = "archivosDCM"
 
 def menu():
-    return int(input("""Seleccione una opción:
-1. Procesar archivos Dicom
-2. Ingresar paciente
-3. Transformación Geométrica de un Dicom
-4. Imgresar imagen (JPG o PNG)
-5. Binarización de imagen (JPG o PNG)
-6. Salir
-R// """))
+    while True:
+        try:
+            opcion = int(input("""Seleccione una opción:
+1. Cargar archivos Dicom y recosntruir volumen
+2. Mostrar cortes
+Aplicar traslación                          
+    4. Ingresar imagen (JPG o PNG)
+    5. Binarización de imagen (JPG o PNG)
+    6. Salir
+    R// """))
+            return opcion
+        except ValueError:
+            print(" Entrada inválida. Por favor ingrese un número.")
+            continue
+
 def main():
     archivos_DICOM_IMA = {}
     pacientes = {}
@@ -22,7 +30,12 @@ def main():
         R = menu()
 
         if R == 1:
-            pass
+            print(" Cargando archivos DICOM...")
+            archivos = cargar_carpeta_dicom(ruta)
+            volumen = reconstruir_volumen(archivos)
+            paciente = crear_paciente(archivos, volumen)
+            print(f" Paciente cargado: {paciente.nombre}, Edad: {paciente.edad}, ID: {paciente.ID}")
+            print(f" Volumen reconstruido con forma: {paciente.imagen.shape}")
         elif R == 2:
             pass
         elif R == 3:
@@ -52,7 +65,6 @@ Ejemplo: imagen.png""")
                 print(f"- {i}")
             # clave = input("R// ")
             clave = "rostro"
-            Ruta = f"{clave}.jpg"
             ima = archivos_DICOM_IMA.get(clave,"No está en el diccionario")
             img = ima.ima
             im = IMAGENES(None, img)
