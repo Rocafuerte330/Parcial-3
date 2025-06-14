@@ -1,4 +1,7 @@
-
+#NOMBRES - Grupo - Informática 2
+#Jose David Román Restrepo  - Grupo 2
+#Santiago Heredia Vasquez  - Grupo 4
+#GitHub: https://github.com/Rocafuerte330/Parcial-3
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
